@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=jarvis
+      - POSTGRES_PASSWORD=xZqB9_J4u_349Lb
+      - POSTGRES_DB=ultron
+    ports:
+      - "5432:5432"
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data

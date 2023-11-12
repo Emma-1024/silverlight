@@ -1,0 +1,20 @@
+# IDE
+.vscode
+
+# Auto generated content
+/app/components/icons
+/database/postgres-data
+
+node_modules
+
+# Build
+/build
+/public/build
+.env
+
+# Test
+/coverage
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/playwright/.auth/loginAuth.json

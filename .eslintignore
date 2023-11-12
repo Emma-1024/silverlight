@@ -1,0 +1,8 @@
+/node_modules
+/build
+/public/build
+/database/postgres-data
+.eslintrc.js
+mocks/index.js
+postcss.config.js
+remix.config.js
