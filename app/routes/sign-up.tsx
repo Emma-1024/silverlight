@@ -9,17 +9,17 @@ import {
   useSearchParams,
 } from "@remix-run/react";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { AuthorizationError } from "remix-auth";
 import invariant from "tiny-invariant";
+
 import { authenticator } from "~/auth.server";
 import { globalDefaults } from "~/constants/defaults";
-
+import { getCookieSession, sessionStorage } from "~/cookieSession.server";
+import { createSession } from "~/models/session.server";
 import type { User } from "~/models/user.server";
 import { createUser, getUserByEmail } from "~/models/user.server";
-import { getCookieSession, sessionStorage } from "~/cookieSession.server";
 import { safeRedirect, validateEmail } from "~/utils";
-import { createSession } from "~/models/session.server";
-import { useTranslation } from "react-i18next";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const userId = await authenticator.isAuthenticated(request);

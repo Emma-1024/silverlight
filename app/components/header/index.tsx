@@ -1,10 +1,12 @@
-import { default as SolidIcon } from "~/components/icons/solid";
-import avatar from "../../../public/images/doctor-strange.png";
 import { Form, Link, useFetcher } from "@remix-run/react";
-import { useOptionalUser } from "~/utils";
 import { type ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+import { default as SolidIcon } from "~/components/icons/solid";
 import { globalDefaults } from "~/constants/defaults";
+import { useOptionalUser } from "~/utils";
+
+import avatar from "../../../public/images/doctor-strange.png";
 
 interface Props {
   theme: string;
@@ -15,7 +17,7 @@ export const Header = (props: Props) => {
   const [searchText, setSearchText] = useState("");
 
   const user = useOptionalUser();
-  let { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const sessionDataFetcher = useFetcher();
 
   // Event type must be set any, Event type MouseEvent does not have getAttribute property
@@ -57,7 +59,7 @@ export const Header = (props: Props) => {
   };
 
   const searchInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    var value = e.target.value;
+    const value = e.target.value;
     setSearchText(value);
   };
 

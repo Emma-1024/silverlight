@@ -1,15 +1,18 @@
 import { expect, test } from "vitest";
+
+import { SESSION_MAXAGE, SESSION_MAXAGE_1D } from "~/auth.server";
+import { globalDb } from "~/constants/db";
 import { globalDefaults } from "~/constants/defaults";
+
 import {
   createSession,
   getSessionById,
   getSessionByIdOrThrow,
   updateSessionExpirationById,
 } from "./session.server";
-import { getUserByEmail } from "./user.server";
-import { globalDb } from "~/constants/db";
 import { updateSessionDataById } from "./sessionData.server";
-import { SESSION_MAXAGE, SESSION_MAXAGE_1D } from "~/auth.server";
+import { getUserByEmail } from "./user.server";
+
 
 const isSessionExpirationDateCorrect = (
   sessionMaxage: number,

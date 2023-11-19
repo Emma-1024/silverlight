@@ -8,10 +8,10 @@ import {
 } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
-import { deleteNote, getNote } from "~/models/note.server";
 import { requireUserId } from "~/auth.server";
-import { hasPermission } from "~/utils";
 import { permissionConsts } from "~/constants/permissionConsts";
+import { deleteNote, getNote } from "~/models/note.server";
+import { hasPermission } from "~/utils";
 
 export const loader = async ({ params, request }: LoaderArgs) => {
   const userId = await requireUserId(request);

@@ -1,4 +1,6 @@
+import bcrypt from "bcryptjs";
 import { expect, test } from "vitest";
+
 import {
   createUser,
   deleteUserByEmail,
@@ -6,7 +8,6 @@ import {
   getUserById,
   verifyLogin,
 } from "./user.server";
-import bcrypt from "bcryptjs";
 
 const email = "user@prisma.io";
 const password = "userPassword";

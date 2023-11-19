@@ -1,6 +1,7 @@
 import { expect, test as setup } from "@playwright/test";
-import { globalDb } from "~/constants/db";
+
 import { STORAGE_STATE } from "playwright.config";
+import { globalDb } from "~/constants/db";
 import { globalProject } from "~/constants/project";
 
 setup("do login", async ({ page }) => {

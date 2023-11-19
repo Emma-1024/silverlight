@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+
 import { globalDb } from "~/constants/db";
 
 const prisma = new PrismaClient();

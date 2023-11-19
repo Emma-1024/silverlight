@@ -1,14 +1,15 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import { useOptionalUser } from "~/utils";
 import { useTranslation } from "react-i18next";
+
 import { globalProject } from "~/constants/project";
+import { useOptionalUser } from "~/utils";
 
 export const meta: V2_MetaFunction = () => [{ title: globalProject.PROJECT_NAME}];
 
 export default function Index() {
   const user = useOptionalUser();
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <main className="h-full">
       <div className="mx-auto sm:flex sm:justify-center text-center">

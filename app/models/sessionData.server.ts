@@ -1,4 +1,5 @@
 import type { Prisma, Session } from "@prisma/client";
+
 import { prisma } from "~/db.server";
 export type { SessionData } from "@prisma/client";
 

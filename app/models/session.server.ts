@@ -1,6 +1,7 @@
+import type { Prisma, Session, SessionData } from "@prisma/client";
+
 import { SESSION_MAXAGE, SESSION_MAXAGE_1D } from "~/auth.server";
 import { prisma } from "~/db.server";
-import type { Prisma, Session, SessionData } from "@prisma/client";
 export type { Session } from "@prisma/client";
 
 export async function createSession({

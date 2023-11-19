@@ -91,7 +91,7 @@ export async function getUserWithPermission(id: User["id"]): Promise<User> {
     where: { id },
     include: { roles: { include: { permissions: true } } },
   });
-  let permissions = new Set<Permission["name"]>();
+  const permissions = new Set<Permission["name"]>();
 
   if (user?.roles) {
     for (const role of user.roles) {

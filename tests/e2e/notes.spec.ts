@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-const titleText: string = `test note title ${Math.random().toFixed(2)}`;
-const bodyText: string = `test note body ${Math.random().toFixed(2)}`;
+const titleText = `test note title ${Math.random().toFixed(2)}`;
+const bodyText = `test note body ${Math.random().toFixed(2)}`;
 test("add notes and check if created successfully", async ({ page }) => {
   await page.goto("/");
   await page.getByTestId("notes").click();

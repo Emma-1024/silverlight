@@ -1,11 +1,12 @@
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, NavLink, Outlet, useLoaderData } from "@remix-run/react";
-
-import { getNoteListItems } from "~/models/note.server";
-import { requireUserId } from "~/auth.server";
-import { useUser } from "~/utils";
 import invariant from "tiny-invariant";
+
+import { requireUserId } from "~/auth.server";
+import { getNoteListItems } from "~/models/note.server";
+import { useUser } from "~/utils";
+
 
 export const loader = async ({ request }: LoaderArgs) => {
   const userId = await requireUserId(request);

@@ -2,6 +2,7 @@ import { useMatches } from "@remix-run/react";
 import { useMemo } from "react";
 
 import { getUserWithPermission, type User } from "~/models/user.server";
+
 import { type Permission } from "./models/permission.server";
 
 const DEFAULT_REDIRECT = "/";

@@ -1,7 +1,8 @@
-import { PrismaClient } from "@prisma/client";
-import invariant from "tiny-invariant";
-import dotenv from "dotenv";
 import { resolve } from "path";
+
+import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
+import invariant from "tiny-invariant";
 
 let prisma: PrismaClient;
 

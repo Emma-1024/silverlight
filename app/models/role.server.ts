@@ -1,4 +1,5 @@
 import type { Permission, Prisma, Role } from "@prisma/client";
+
 import { prisma } from "~/db.server";
 export type { Role } from "@prisma/client";
 

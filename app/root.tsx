@@ -13,25 +13,27 @@ import {
   useRouteError,
   useFetcher,
 } from "@remix-run/react";
-
-import stylesheet from "~/tailwind.css";
-import { useTranslation } from "react-i18next";
-import { extendExpiration, authenticator, logout } from "./auth.server";
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { themeChange } from "theme-change";
+import invariant from "tiny-invariant";
+
 import { default as SolidIcon } from "~/components/icons/solid";
+import stylesheet from "~/tailwind.css";
+
+import { extendExpiration, authenticator, logout } from "./auth.server";
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
+import { globalConsts } from "./constants/consts";
+import { globalDefaults } from "./constants/defaults";
 import {
   sessionStorage,
   getCookieSession,
   getSessionId,
 } from "./cookieSession.server";
-import { globalConsts } from "./constants/consts";
 import i18next from "./i18next.server";
-import { globalDefaults } from "./constants/defaults";
 import { createSession, getSessionById } from "./models/session.server";
-import invariant from "tiny-invariant";
+
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -89,7 +91,7 @@ export const loader = async ({ request }: LoaderArgs) => {
       });
     }
   } else {
-    let locale = await i18next.getLocale(request);
+    const locale = await i18next.getLocale(request);
     const sessionUserless = await createSession({
       rememberMe: null,
       userId: null,
@@ -117,7 +119,7 @@ export const handle = {
 // "Warning In latest versions you may find an error with useChangeLanguage hook, (see #107),
 // to solve it, copy the code of useChangeLanguage to your own app and use it instead of the one provided by remix-i18next."
 export function useChangeLanguage(locale: string) {
-  let { i18n } = useTranslation();
+  const { i18n } = useTranslation();
   useEffect(() => {
     void i18n.changeLanguage(locale);
   }, [locale, i18n]);

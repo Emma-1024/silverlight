@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+
 import { globalProject } from "../../app/constants/project"
 
 test.beforeEach(async ({ page }) => {

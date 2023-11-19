@@ -1,13 +1,13 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { unstable_createRemixStub } from "@remix-run/testing";
-import { Outlet, useLoaderData, useMatches } from "@remix-run/react";
 import type { DataFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
+import { Outlet, useLoaderData, useMatches } from "@remix-run/react";
+import { unstable_createRemixStub } from "@remix-run/testing";
 
 test("renders a route", () => {
-  let RemixStub = unstable_createRemixStub([
+  const RemixStub = unstable_createRemixStub([
     {
       path: "/",
       element: <div>HOME</div>,
@@ -20,7 +20,7 @@ test("renders a route", () => {
 });
 
 test("renders a nested route", () => {
-  let RemixStub = unstable_createRemixStub([
+  const RemixStub = unstable_createRemixStub([
     {
       element: (
         <div>
@@ -45,11 +45,11 @@ test("renders a nested route", () => {
 
 test("loaders work", async () => {
   function App() {
-    let data = useLoaderData();
+    const data = useLoaderData();
     return <pre data-testid="data">Message: {data.message}</pre>;
   }
 
-  let RemixStub = unstable_createRemixStub([
+  const RemixStub = unstable_createRemixStub([
     {
       path: "/",
       index: true,
@@ -82,7 +82,7 @@ test("can pass a predefined loader", () => {
 
 test("can pass context values", async () => {
   function App() {
-    let data = useLoaderData();
+    const data = useLoaderData();
     return (
       <div>
         <pre data-testid="root">Context: {data.context}</pre>;
@@ -92,11 +92,11 @@ test("can pass context values", async () => {
   }
 
   function Hello() {
-    let data = useLoaderData();
+    const data = useLoaderData();
     return <pre data-testid="hello">Context: {data.context}</pre>;
   }
 
-  let RemixStub = unstable_createRemixStub(
+  const RemixStub = unstable_createRemixStub(
     [
       {
         path: "/",
@@ -130,7 +130,7 @@ test("can pass context values", async () => {
 
 test("all routes have ids", () => {
   function Home() {
-    let matches = useMatches();
+    const matches = useMatches();
 
     return (
       <div>
@@ -140,7 +140,7 @@ test("all routes have ids", () => {
     );
   }
 
-  let RemixStub = unstable_createRemixStub([
+  const RemixStub = unstable_createRemixStub([
     {
       element: (
         <div>
@@ -159,11 +159,11 @@ test("all routes have ids", () => {
 
   render(<RemixStub />);
 
-  let matchesTextContent = screen.getByTestId("matches").textContent;
+  const matchesTextContent = screen.getByTestId("matches").textContent;
   // eslint-disable-next-line jest-dom/prefer-in-document
   expect(matchesTextContent).toBeDefined();
-  let matches = JSON.parse(matchesTextContent!);
-  let matchesWithoutIds = matches.filter((match: any) => match.id == null);
+  const matches = JSON.parse(matchesTextContent!);
+  const matchesWithoutIds = matches.filter((match: any) => match.id == null);
 
   expect(matchesWithoutIds).toHaveLength(0);
 });

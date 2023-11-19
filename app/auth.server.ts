@@ -1,13 +1,15 @@
-import { type User, verifyLogin } from "~/models/user.server";
 import { Authenticator } from "remix-auth";
+import { FormStrategy } from "remix-auth-form";
+import invariant from "tiny-invariant";
+
+import { type User, verifyLogin } from "~/models/user.server";
+
+import { globalConsts } from "./constants/consts";
 import {
   getCookieSession,
   getSessionId,
   sessionStorage,
 } from "./cookieSession.server";
-import { FormStrategy } from "remix-auth-form";
-import invariant from "tiny-invariant";
-import { globalConsts } from "./constants/consts";
 import {
   getSessionById,
   getSessionByIdOrThrow,
