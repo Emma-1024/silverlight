@@ -51,6 +51,9 @@ module.exports = {
       files: ["**/*.{ts,tsx}"],
       plugins: ["@typescript-eslint", "import"],
       parser: "@typescript-eslint/parser",
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
       settings: {
         "import/internal-regex": "^~/",
         "import/resolver": {
