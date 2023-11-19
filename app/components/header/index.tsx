@@ -21,6 +21,7 @@ export const Header = (props: Props) => {
   const sessionDataFetcher = useFetcher();
 
   // Event type must be set any, Event type MouseEvent does not have getAttribute property
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any) => {
     if (document.activeElement instanceof HTMLElement) {
       // Close the popup dropdown menu when menuItem is clicked

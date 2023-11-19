@@ -206,7 +206,7 @@ export const ErrorBoundary = () => {
           <p className="text-7xl font-bold">Oops!</p>
           <div className="flex text-center gap-3">
             <SolidIcon className="w-6 h-6 fill-gray-700" icon="face" />
-            <p>We can't seem to find the page you're looking for.</p>
+            <p>{`We can't seem to find the page you're looking for.`}</p>
           </div>
           <p>
             {error.status} {error.statusText}

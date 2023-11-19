@@ -28,6 +28,7 @@ export const loader = async ({ request }: LoaderArgs) => {
   } else return json({ replace: true });
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const action = async ({ context, request }: ActionArgs) => {
   const formData = await request.formData();
   const email = formData.get("email");
@@ -245,7 +246,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="text-sm text-gray-500">
-                  Don't have an account?{" "}
+                  {`Don't have an account? `}
                   <Link
                     className="text-blue-500 underline font-semibold"
                     to={{

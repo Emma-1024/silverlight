@@ -7,7 +7,7 @@ import invariant from "tiny-invariant";
 let prisma: PrismaClient;
 
 declare global {
-  var __db__: PrismaClient;
+  let __db__: PrismaClient;
 }
 
 // this is needed because in development we don't want to restart

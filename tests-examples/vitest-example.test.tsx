@@ -1,10 +1,9 @@
-import * as React from "react";
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import type { DataFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Outlet, useLoaderData, useMatches } from "@remix-run/react";
 import { unstable_createRemixStub } from "@remix-run/testing";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
 
 test("renders a route", () => {
   const RemixStub = unstable_createRemixStub([
@@ -67,7 +66,9 @@ test("loaders work", async () => {
   );
 });
 
+// eslint-disable-next-line jest/expect-expect
 test("can pass a predefined loader", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function loader(_args: DataFunctionArgs) {
     return json({ hi: "there" });
   }
@@ -163,6 +164,7 @@ test("all routes have ids", () => {
   // eslint-disable-next-line jest-dom/prefer-in-document
   expect(matchesTextContent).toBeDefined();
   const matches = JSON.parse(matchesTextContent!);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const matchesWithoutIds = matches.filter((match: any) => match.id == null);
 
   expect(matchesWithoutIds).toHaveLength(0);

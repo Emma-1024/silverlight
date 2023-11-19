@@ -24,6 +24,7 @@ export const authenticator = new Authenticator<User["id"]>(sessionStorage, {
 });
 
 authenticator.use(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   new FormStrategy(async ({ form, context }) => {
     // You can use `context` to access more things from the server
     const email = form.get("email");

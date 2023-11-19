@@ -52,7 +52,7 @@ module.exports = {
       plugins: ["@typescript-eslint", "import"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ["./tsconfig.json"],
       },
       settings: {
         "import/internal-regex": "^~/",
@@ -88,6 +88,7 @@ module.exports = {
         "@typescript-eslint/no-duplicate-type-constituents": "error",
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-misused-promises": "error",
+        "@typescript-eslint/no-var-requires": "off",
       },
     },
 

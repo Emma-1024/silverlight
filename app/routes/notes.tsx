@@ -7,7 +7,6 @@ import { requireUserId } from "~/auth.server";
 import { getNoteListItems } from "~/models/note.server";
 import { useUser } from "~/utils";
 
-
 export const loader = async ({ request }: LoaderArgs) => {
   const userId = await requireUserId(request);
   invariant(typeof userId === "string", "User must login");
@@ -44,7 +43,7 @@ export default function NotesPage() {
             <p className="p-4">No notes yet</p>
           ) : (
             <ol className="overflow-scroll">
-              {data.noteListItems.map((note, index) => (
+              {data.noteListItems.map((note) => (
                 <li key={note.id}>
                   <NavLink
                     data-testid={note.id}
