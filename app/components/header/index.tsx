@@ -20,14 +20,13 @@ export const Header = (props: Props) => {
   const { t, i18n } = useTranslation();
   const sessionDataFetcher = useFetcher();
 
-  // Event type must be set any, Event type MouseEvent does not have getAttribute property
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleClick = (event: any) => {
+  const handleClick = (event: MouseEvent) => {
     if (document.activeElement instanceof HTMLElement) {
       // Close the popup dropdown menu when menuItem is clicked
       document.activeElement.blur();
     }
-    const themeValue = event.currentTarget.getAttribute("data-set-theme") ?? "";
+    const target = event.currentTarget as HTMLButtonElement;
+    const themeValue = target.getAttribute("data-set-theme") ?? "";
     sessionDataFetcher.submit(
       { theme: themeValue, locale: props.locale },
       { method: "post", action: "/session-data" },

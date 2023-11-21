@@ -7,7 +7,9 @@ import invariant from "tiny-invariant";
 let prisma: PrismaClient;
 
 declare global {
-  let __db__: PrismaClient;
+  // Only the var variables define a property on the global object.
+  // eslint-disable-next-line no-var
+  var __db__: PrismaClient;
 }
 
 // this is needed because in development we don't want to restart

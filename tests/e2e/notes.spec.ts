@@ -14,7 +14,8 @@ test("add notes and check if created successfully", async ({ page }) => {
   await new Promise((r) => setTimeout(r, 1000));
   await expect(page).toHaveURL(/.*notes*/);
   const noteId = page.url().split("/").pop();
-  const createdLi = page.getByTestId(noteId);
+  expect(noteId).toBeDefined();
+  const createdLi = page.getByTestId(noteId as string);
   await expect(createdLi).toBeVisible();
   await createdLi.click();
   await expect(page.getByTestId("note-detail-title")).toContainText(titleText);
